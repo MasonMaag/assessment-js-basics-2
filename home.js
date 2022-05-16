@@ -23,10 +23,11 @@
 
 //CODE HERE
 const greetUser = (username) => {
-    return `Welcome back, ${username}`
+    // return `Welcome back, ${username}`
+    return console.log(`Welcome back, ${username}`)
 }
-
-console.log(greetUser(`Andrew`))
+greetUser('Andrew')
+// console.log(greetUser(`Andrew`))
 
 
 //////////////////PROBLEM 2////////////////////
@@ -52,20 +53,30 @@ console.log(greetUser(`Andrew`))
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-function canWeDeliver(zipCode) {
-    let answers = [];
-    for (let i = 0; i < zipCode.length; i++) {
-      if (zipCode[i] > `84606`) {
-        answers.push(`Sorry, we can't deliver to that address`);
-      } else {
-        answers.push(`You're in our delivery zone`);
-      }
-    } return answers;
-  }
-let arrayEvaluator = canWeDeliver(deliveryAreaZipCodes);
-console.log(arrayEvaluator);
+// function canWeDeliver(zipCode) {
+//     let answers = [];
+//     for (let i = 0; i < zipCode.length; i++) {
+//       if (zipCode[i] > `84606`) {
+//         answers.push(`Sorry, we can't deliver to that address`);
+//       } else {
+//         answers.push(`You're in our delivery zone`);
+//       }
+//     } return answers;
+//   }
+// let arrayEvaluator = canWeDeliver(deliveryAreaZipCodes);
+// console.log(arrayEvaluator);
+const canWeDeliver = zipCode => {
+    for(let i = 0; i < deliveryAreaZipCodes.length; i++){
+        if(deliveryAreaZipCodes[i] === zipCode){
+            return console.log(`You are in our delivery zone!`)
+        } else {
+        }
+    }
+    return console.log(`You are not in our delivery zone! Sorry!`)
+}
 
-
+canWeDeliver(76767)
+canWeDeliver(85206)
 /* 
     Problem 2 Continued
 
@@ -84,9 +95,20 @@ console.log(arrayEvaluator);
 */
 
 // CODE HERE
-function canWeDeliverTwo() {
-    canWeDeliver.includes;
+// function canWeDeliverTwo() {
+//     canWeDeliver.includes;
+// }
+const canWeDeliverTwo = zipCode => {
+    if (deliveryAreaZipCodes.includes(zipCode)){
+        return console.log(`We can deliver to you!`)
+    } else {
+        return console.log(`Sorry, we can't deliver to you!`)
+    }
 }
+
+canWeDeliverTwo(85205)
+canWeDeliverTwo(90393)
+
 //////////////////PROBLEM 3////////////////////
 /* 
     Below is an array of objects that have some
@@ -121,10 +143,11 @@ const deals = [
 */
 
 //CODE HERE
-deals[0] = '10% Off! Applied to your entire order when you spend $30 or more';
-console.log(deals)
+// deals[0] = '10% Off! Applied to your entire order when you spend $30 or more';
+// console.log(deals)
 
-
+deals[0].title = deals[0].title.replace('15', '10')
+// console.log(deals)
 
 // /*
 //     The restaurant is going to continue its
@@ -140,5 +163,8 @@ console.log(deals)
 // */
 
 //CODE HERE
-deals[1] = 'This deal lasts until the end of April!'
+// deals[1] = 'This deal lasts until the end of April!'
+// console.log(deals)
+
+deals[1].desc = deals[1].desc.replace('March', 'April').trim()
 console.log(deals)

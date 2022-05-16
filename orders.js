@@ -30,14 +30,25 @@
 */
 
 //CODE HERE
-const status = queued;
+// const status = queued;
+// class Ticket {
+//     constructor(items, orderTime, customerId) {
+//         this.updateStatus = "newStatus";
+//         this.status =
+//     }
+// }
 class Ticket {
-    constructor(items, orderTime, customerId) {
-        this.updateStatus = "newStatus";
-        this.status =
+    constructor(items,orderTime,customerId) {
+        this.items = items;
+        this.orderTime = orderTime;
+        this.customerId = customerId;
+        this.status = 'queued'
+    }
+    updateStatus = (newStatus) => {
+        this.status = newStatus
+        console.log(`The order for customer ${this.customerId} is now ${this.status}.`)
     }
 }
-
 
 /*
     Create a new instance of your class.
@@ -51,8 +62,9 @@ class Ticket {
 */
 
 //CODE HERE
-
-
+let firstTicket = new Ticket (['pizza', 'bread', 'soda', 'fruit'], '5:30 PM EST',634)
+console.log(firstTicket)
+// let secondTicket = new Ticket (['asdf', 'dfaa','sldkfj'], '1:00 PM EST',656)
 /*
     Call the `updateStatus` method on
     `firstTicket` passing in the string
@@ -60,3 +72,7 @@ class Ticket {
 */
 
 //CODE HERE
+firstTicket.updateStatus('cooking')
+console.log(firstTicket)
+// secondTicket.updateStatus('done')
+// console.log(secondTicket)

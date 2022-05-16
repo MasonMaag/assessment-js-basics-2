@@ -34,15 +34,15 @@ const cart = [
 ]
 
 //CODE HERE
+// const summedPrice = cart.reduce((prev, {name}) => {
+//     prev[name] ??= 0;
+//     prev[name]++;
+//     return prev;
+// }, {});
+// console.log(summedPrice)
 
-  
-const summedPrice = cart.reduce((prev, {name}) => {
-    prev[name] ??= 0;
-    prev[name]++;
-    return prev;
-}, {});
+const summedPrice = cart.reduce((acc,curr) => acc + curr['price'],0)
 console.log(summedPrice)
-
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -60,11 +60,16 @@ console.log(summedPrice)
 */
 
 //CODE HERE
-function calcFinalPrice(calcFinalPrice,couponValue,tax) {
-    let cartTotal = cart.price + 3.05;
-    return cartTotal + cart.price;
+// function calcFinalPrice(calcFinalPrice,couponValue,tax) {
+//     let cartTotal = cart.price + 3.05;
+//     return cartTotal + cart.price;
+// }
+// calcFinalPrice(cartTotal)
+function calcFinalPrice(cartTotal,couponValue,tax) {
+    return (cartTotal * tax) + cartTotal - couponValue
 }
-calcFinalPrice(cartTotal)
+
+console.log(calcFinalPrice(10,1,.1))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -88,6 +93,10 @@ calcFinalPrice(cartTotal)
 
 /*
     TEXT ANSWER HERE
+ -Address/zipcode: Enter address and zip code to see if they are in the delivery area. Log they are in the delivery area.
+ -Email address: Enter email address for order status. Log order staus and when the order is on the way.
+ -Coupon: Enter coupon code and apply to the order. Log the discount.
+ -Payment method: Enter for payment of the meal. Log payment proccessed.
 
 */
 
@@ -97,3 +106,9 @@ calcFinalPrice(cartTotal)
 */
 
 //CODE HERE
+const order = {
+    zipCode: [84059, 84604, 84056],
+    emailAddress: ['Your order is being made!','Your order is on the way!'],
+    coupon: ['Your coupon has been applied!', 'Incorrect code.'],
+    payment: ['Your payment has been processed!', 'Incorrect credentials'] 
+}

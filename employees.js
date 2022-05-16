@@ -20,7 +20,16 @@
 */
 
 //CODE HERE
-
+class Employee {
+    constructor(name,shifts){
+        this.name = name;
+        this.shifts = shifts;
+    }
+    getSchedule = () => {
+        return console.log(`${this.name} works ${this.shifts}`)
+        console.log('Yay!')
+    }
+}
 
 
 /*
@@ -34,13 +43,14 @@
 */
 
 //CODE HERE
-
+let empOne = new Employee('Jess',['weekday mornings','weekend afternoons'])
 /*
-    Call the `getSchedule` method on the
-    `empOne` object.
+Call the `getSchedule` method on the
+`empOne` object.
 */
 
 //CODE HERE
+empOne.getSchedule()
 
 
 /*
@@ -56,6 +66,10 @@
 */
 
 //CODE HERE
+let empTwo = {...empOne}
+empTwo.name = 'Nick'
+
+console.log(empTwo)
 
 
 
@@ -83,7 +97,18 @@
 */
 
 //CODE HERE
-
+class Manager extends Employee {
+    constructor(name,shifts,employees) {
+        super(name,shifts)
+        this.employees = employees
+    }
+    getEmployees(){
+        console.log(`${this.name} manages ${this.employees}`)
+    }
+    addEmployee(emp){
+        this.employees.push(emp)
+    }
+}
 
 
 /*
@@ -98,7 +123,7 @@
 */
 
 //CODE HERE
-
+let manager = new Manager('Winston',['weekday evening', 'weekend mornings'], ['Cece', 'Jess', 'Schmidt'])
 
 /*
     Call the `getEmployees` method on the
@@ -106,7 +131,7 @@
 */
 
 //CODE HERE
-
+manager.getEmployees()
 /*
     Call the `addEmployee` method on the 
     `manager` object passing in the string 
@@ -114,7 +139,7 @@
 */
 
 //CODE HERE 
-
+manager.addEmployee('Coach Carter')
 /*
     Call the `getEmployees` method on the
     `manager` object again to confirm 
@@ -122,3 +147,4 @@
 */
 
 //CODE HERE
+manager.getEmployees()
